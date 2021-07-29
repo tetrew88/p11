@@ -1,0 +1,62 @@
+{% extends 'pages/base.html' %}
+
+{% block content %}
+{% load static %}
+	<div class='blocPage'>
+
+		<div class="introduction">
+			<div class="row ">
+				<div class="col">
+
+					<div class="row">
+						<div class="col-5"></div>
+						<div class="col-2 titleBox">
+							<h2 class="text-center"><strong>Mon compte</strong></h2>
+						</div>
+						<div class="col-5"></div>
+					</div>
+
+				</div>
+			</div>
+		</div>
+
+		<div class="row separation1"></div>
+
+		<div class="row">
+			<div class="col-4"></div>
+			<div class="col-4 information">
+				<div class="row">
+					<p>
+						mail: 
+						<div class="informationZone text-center" style="width: 70%; height: 25px;">
+							{{ user.email }}
+						</div>
+						<button type="button" data-toggle="modal" data-target="" class="fa fa-pencil" style="height: 25px;"></button>
+					</p>
+				</div>
+				<div class="row">
+					<p>
+						pseudo:
+						<div class="informationZone text-center" style="width: 60%; height: 25px;">
+							{{ profil.name }}
+						</div>
+						<button type="button" data-toggle="modal" data-target="" class="fa fa-pencil" style="height: 25px;"></button>
+					</p>
+				</div>
+				<div class="row">
+					<p>
+						mot de passe:
+						<div class="informationZone text-center" style="width: 50%; height: 25px;">
+							****
+						</div>
+						<button type="button" data-toggle="modal" data-target="" class="fa fa-pencil" style="height: 25px;"></button>
+					</p>
+				</div>
+			</div>
+			<div class="col-4"></div>
+		</div>
+
+		<div class="row separation2"></div>
+	</div>
+
+{% endblock %}
