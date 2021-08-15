@@ -4,6 +4,8 @@ from django.http import HttpResponse
 from authentification.forms import IdentificationForm
 from substitutesearch.forms import SearchForm
 from substitutesearch.management.commands.database_function import search_profil
+from userProfil.forms import PasswordChange, MailChange, PseudoChange
+
 
 
 def index(request):
@@ -21,6 +23,10 @@ def account(request):
 	""" account pages """
 	identifiantForm = IdentificationForm()
 	searchForm = SearchForm()
+
+	passwordChange = PasswordChange()
+	mailChange = MailChange()
+	pseudoChange = PseudoChange()
 
 	user = request.user
 	profil = search_profil(user.username)

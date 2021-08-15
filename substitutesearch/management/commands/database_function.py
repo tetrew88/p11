@@ -137,3 +137,13 @@ def search_profil(userName):
 		return profil
 	else:
 		return False
+
+
+def search_mail(mail):
+	profil = Profil.objects.all()
+	profil = profil.filter(mailAdress=mail)
+
+	if len(profil) > 0:
+		return True
+	else:
+		return False

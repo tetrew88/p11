@@ -31,7 +31,7 @@
 						<div class="informationZone text-center" style="width: 70%; height: 25px;">
 							{{ user.email }}
 						</div>
-						<button type="button" data-toggle="modal" data-target="" class="fa fa-pencil" style="height: 25px;"></button>
+						<button type="button" data-toggle="modal" data-target="#mailSetting" class="fa fa-pencil" style="height: 25px;"></button>
 					</p>
 				</div>
 				<div class="row">
@@ -40,7 +40,7 @@
 						<div class="informationZone text-center" style="width: 60%; height: 25px;">
 							{{ profil.name }}
 						</div>
-						<button type="button" data-toggle="modal" data-target="" class="fa fa-pencil" style="height: 25px;"></button>
+						<button type="button" data-toggle="modal" data-target="#pseudoSetting" class="fa fa-pencil" style="height: 25px;"></button>
 					</p>
 				</div>
 				<div class="row">
@@ -49,7 +49,7 @@
 						<div class="informationZone text-center" style="width: 50%; height: 25px;">
 							****
 						</div>
-						<button type="button" data-toggle="modal" data-target="" class="fa fa-pencil" style="height: 25px;"></button>
+						<button type="button" data-toggle="modal" data-target="#passwordSetting" class="fa fa-pencil" style="height: 25px;"></button>
 					</p>
 				</div>
 			</div>
@@ -57,6 +57,119 @@
 		</div>
 
 		<div class="row separation2"></div>
+	</div>
+
+	<div class="modal" id="passwordSetting">
+			<div class="modal-dialog">
+				<div class="modal-content">
+
+					<div class="container-fluid">
+
+						<form id="passwordChange" method="post">
+							{% csrf_token %}
+
+							<div class="row">
+							   	<div class="col text-center">
+							   		<label for="{{ passwordChange.oldPassword.id_for_label }}">ancien mot de passe:</label>
+							   		{{ passwordChange.oldPassword }}
+								</div>
+							</div>
+
+							<div class="row">
+							   	<div class="col text-center">
+							   		<label for="{{ passwordChange.newPassword.id_for_label }}">nouvau mot de passe:</label>
+							   		{{ passwordChange.newPassword }}
+								</div>
+							</div>
+
+							<div class="row">
+							   	<div class="col text-center">
+							   		<label for="{{ passwordChange.confirmation.id_for_label }}">confirmation:</label>
+							   		{{ passwordChange.confirmation }}
+								</div>
+							</div>
+
+
+							<div class="row">
+								<div class="col text-center buttonZone">
+									<button type="submit" class="btn btn-success" formaction="{% url 'userProfil:change_password' %}">valider</button>
+											
+								</div>
+							</div>
+						</form>
+
+					</div>
+
+				</div>
+			</div>
+	</div>
+
+	<div class="modal" id="mailSetting">
+			<div class="modal-dialog">
+				<div class="modal-content">
+
+					<div class="container-fluid">
+
+						<form id="mailChange" method="post">
+							{% csrf_token %}
+
+							<div class="row">
+							   	<div class="col text-center">
+							   		<label for="{{ mailChange.newMail.id_for_label }}">nouvau mail:</label>
+							   		{{ mailChange.newMail }}
+								</div>
+							</div>
+
+							<div class="row">
+							   	<div class="col text-center">
+							   		<label for="{{ mailChange.confirmation.id_for_label }}">confirmation:</label>
+							   		{{ mailChange.confirmation }}
+								</div>
+							</div>
+
+
+							<div class="row">
+								<div class="col text-center buttonZone">
+									<button type="submit" class="btn btn-success" formaction="{% url 'userProfil:change_mail' %}">valider</button>
+											
+								</div>
+							</div>
+						</form>
+
+					</div>
+
+				</div>
+			</div>
+	</div>
+
+	<div class="modal" id="pseudoSetting">
+			<div class="modal-dialog">
+				<div class="modal-content">
+
+					<div class="container-fluid">
+
+						<form id="pseudoChange" method="post">
+							{% csrf_token %}
+
+							<div class="row">
+							   	<div class="col text-center">
+							   		<label for="{{ pseudoChange.pseudo.id_for_label }}">nouvau pseudo:</label>
+							   		{{ pseudoChange.pseudo }}
+								</div>
+							</div>
+
+							<div class="row">
+								<div class="col text-center buttonZone">
+									<button type="submit" class="btn btn-success" formaction="{% url 'userProfil:change_pseudo' %}">valider</button>
+											
+								</div>
+							</div>
+						</form>
+
+					</div>
+
+				</div>
+			</div>
 	</div>
 
 {% endblock %}

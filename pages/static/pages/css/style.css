@@ -264,8 +264,10 @@ p, li
 	border: 3px inset #86EBE6;
 	width: 80%;
 
-	margin: 5%;
 	padding: 5%;
+
+	margin-bottom: 5%;
+	margin-top: 5%;
 }
 /**/
 
