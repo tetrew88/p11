@@ -37,6 +37,7 @@ def change_password(request):
 
 		logout(request)
 	else:
+		template = "pages/account.html"
 		return render(request, template, locals())
 
 	return redirect(template)
@@ -67,13 +68,17 @@ def change_mail(request):
 
 			profil[0].save()
 			user.save()
+
+			logout(request)
 	else:
+		template = "pages/account.html"
 		messages.warning(request, "confirmation invalide")
+		return render(request, template, locals())
 
-	template = 'pages/account.html'
+	template = '/'
 
 
-	return render(request, template, locals())
+	return redirect(template)
 
 
 def change_pseudo(request):

@@ -31,7 +31,8 @@ def account(request):
 	user = request.user
 	profil = search_profil(user.username)
 
-	profil = profil[0]
+	if profil != False:
+		profil = profil[0]
 
 	template = 'pages/account.html'
 

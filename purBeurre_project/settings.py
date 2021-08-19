@@ -46,7 +46,8 @@ INSTALLED_APPS = [
     'pages.apps.PagesConfig',
     'authentification.apps.AuthentificationConfig',
     'substitutesearch.apps.SubstitutesearchConfig',
-    'favorites.apps.FavoritesConfig'
+    'favorites.apps.FavoritesConfig',
+    'userProfil.apps.UserprofilConfig'
 ]
 
 MIDDLEWARE = [
