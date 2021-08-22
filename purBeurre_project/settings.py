@@ -162,3 +162,12 @@ if os.environ.get('ENV') == 'PRODUCTION':
     DATABASES['default'].update(db_from_env)
 
 AUTHENTICATION_BACKENDS = ['authentification.views.EmailBackend']
+
+
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_HOST_USER = 'mauricedonovandevellopement@gmail.com'
+EMAIL_HOST_PASSWORD = 'dlhamckpzlqrwjap'
+EMAIL_PORT = 587
+EMAIL_USE_TLS = True
+EMAIL_USE_SSl = False
+DEFAULT_FROM_EMAIL = EMAIL_HOST_USER

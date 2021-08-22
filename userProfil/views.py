@@ -4,6 +4,8 @@ from django.contrib.auth.models import User
 from django.contrib.auth import logout
 from django.contrib import messages
 
+from django.core.mail import send_mail
+
 from substitutesearch.management.commands.database_function import search_mail, search_profil
 
 from authentification.forms import IdentificationForm
@@ -64,10 +66,16 @@ def change_mail(request):
 		else:
 			user.email = newMail
 			profil = search_profil(user.username)
-			profil[0].mailAdress = newMail
 
-			profil[0].save()
+			if profil:
+				profil[0].mailAdress = newMail
+				profil[0].save()
+			else:
+				pass
+
 			user.save()
+
+			send_mail('changement de mail', 'votre mail a bien été changer', 'mauricedonovandevellopement@gmail.com', [newMail], fail_silently=False)
 
 			logout(request)
 	else:
