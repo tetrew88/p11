@@ -22,8 +22,11 @@ class TestAuthentification(TestCase):
 
 	def test_succes_connexion(self):
 		response = self.client.post('/authentification/login/', {'mail': 'test@test.fr', 'password': 'test'})
-		response = self.client.get('/account')
+		self.assertEquals(response.status_code, 302)
 
+		self.assertIn('_auth_user_id', self.client.session)
+
+		response = self.client.get('/account')
 		self.assertEquals(response.status_code, 200)
 
 

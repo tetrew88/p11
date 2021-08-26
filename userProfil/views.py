@@ -15,7 +15,7 @@ from substitutesearch.forms import SearchForm
 from .forms import PasswordChange, MailChange, PseudoChange
 
 def change_password(request):
-	""" view allowing the user to change the password """
+	""" view allowing the user to change his password """
 
 	passwordChange = PasswordChange()
 	mailChange = MailChange()
@@ -45,7 +45,7 @@ def change_password(request):
 	return redirect(template)
 
 def change_mail(request):
-	""" view allowing the user to change the password """
+	""" view allowing the user to change his mail """
 
 	passwordChange = PasswordChange()
 	mailChange = MailChange()
@@ -90,7 +90,7 @@ def change_mail(request):
 
 
 def change_pseudo(request):
-	""" view allowing the user to change the password """
+	""" view allowing the user to change his pseudo """
 
 	passwordChange = PasswordChange()
 	mailChange = MailChange()
